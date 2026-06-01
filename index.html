@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Matrix</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Premium Apple Dark Theme */
+            --bg: #000000;
+            --surface: #1c1c1e;
+            --surface-card: #121214;
+            --border: #2c2c2e;
+            --border-active: #0071e3;
+            --text: #ffffff;
+            --text-muted: #8e8e93;
+            --accent: #0071e3;
+            --pill-bg: #2c2c2e;
+        }
+
+        [data-theme="light"] {
+            /* Premium Apple Light Theme */
+            --bg: #f5f5f7;
+            --surface: #ffffff;
+            --surface-card: #ffffff;
+            --border: #d2d2d7;
+            --border-active: #0071e3;
+            --text: #1d1d1f;
+            --text-muted: #86868b;
+            --accent: #0071e3;
+            --pill-bg: #e5e5ea;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.011em;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .viewport {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Apple Bar Header */
+        header {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--bg);
+            padding: 4px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--surface);
+            color: var(--text);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* iOS Toggle Switch Switcher */
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toggle-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 42px;
+            height: 24px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--border);
+            border-radius: 34px;
+            transition: 0.2s ease;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: 0.2s ease;
+        }
+
+        input:checked + .slider {
+            background-color: #34c759; /* Apple iOS Active Green */
+        }
+
+        input:checked + .slider::before {
+            transform: translateX(18px);
+        }
+
+        /* Responsive Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 4px 0;
+        }
+
+        /* Active Focus Indicator Module */
+        .focus-banner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--border-active);
+            border-radius: 8px;
+            padding: 16px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .focus-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+        }
+
+        .focus-target {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* Workspace Grid Split Layout */
+        .view-pane {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .view-pane.active { display: flex; }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        .phase-title {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .phase-timeline {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Execution Flow Elements */
+        .task-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .task-node {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .time-pill {
+            background: var(--text);
+            color: var(--bg);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-width: 65px;
+            text-align: center;
+        }
+
+        .task-body { flex: 1; }
+
+        .task-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .task-title a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .task-title a:hover {
+            text-decoration: underline;
+        }
+
+        .purchase-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        /* Clear Guideline Modules */
+        .guide-box {
+            background: var(--surface);
+            border-left: 2px solid var(--border-active);
+            padding: 8px 12px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .guide-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Pricing Ledger Footer Layout */
+        .price-strip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .price-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .price-badge {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .price-badge span { color: var(--text-muted); font-weight: 400; }
+
+        .total-sum {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .grand-total-bar {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Clean Mobile Responsive Normalization */
+        @media (max-width: 960px) {
+            .grid-layout { grid-template-columns: 1fr; }
+            .hamburger { display: block; }
+            
+            .controls {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px; left: 24px; right: 24px;
+                background: var(--surface);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 16px;
+                gap: 16px;
+                z-index: 100;
+            }
+
+            .controls.open { display: flex; }
+            .tabs { flex-direction: column; width: 100%; }
+            .tab-btn { width: 100%; text-align: center; }
+            .toggle-group { width: 100%; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 12px; }
+            .price-strip { flex-direction: column; text-align: center; }
+            .price-group { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 16px 12px; }
+            .card { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="viewport">
+        
+        <!-- Top Menu Bar Console -->
+        <header>
+            <div class="logo">Matrix</div>
+            
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="controls" id="menu-dock">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('es-view', 'Spanish', this)">Spanish</button>
+                    <button class="tab-btn" onclick="switchTab('fr-view', 'French', this)">French</button>
+                    <button class="tab-btn" onclick="switchTab('ru-view', 'Russian', this)">Russian</button>
+                </div>
+
+                <div class="toggle-group">
+                    <span class="toggle-label">Dark Mode</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle" checked onclick="toggleTheme()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Indicator Line Header -->
+        <div class="focus-banner">
+            <span class="focus-label">Current Focus</span>
+            <span class="focus-target" id="active-title">Spanish</span>
+        </div>
+
+        <!-- SPANISH AREA -->
+        <div id="es-view" class="view-pane active">
+            <div class="grid-layout">
+                <!-- Phase 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="phase-title">Phase 1</span>
+                        <span class="phase-timeline">Months 01 – 04</span>
+                    </div>
+                    
+                    <div class="task-stack">
+                        <div class="task-node">
+                            <div class="time-pill">45 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.assimil.com/" target="_blank">Assimil Spanish</a></div>
+                                <div class="purchase-meta">Physical Book + Audio Code / One-time Purchase</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Read parallel text line-by-line. Listen to native audio three times. Manually write translation exercises. Skip memorization drills.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">15 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.busuu.com/" target="_blank">Busuu Premium</a></div>
+                                <div class="purchase-meta">App Subscription / Buy 4 Months</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Complete one grammar unit. Draft a short essay paragraph based on the lesson module. Submit to native community index for manual correction.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">120 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.dreamingspanish.com/" target="_blank">Dreaming Spanish</a></div>
+                                <div class="purchase-meta">Video Platform / Buy 12 Month Sub</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Select super-beginner videos. Disable all subtitle text overlays. Focus entirely on visual context, cues, and tone. Avoid mental translation tracking.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="phase-title">Phase 2</span>
+                        <span class="phase-timeline">Months 05 – 12</span>
+                    </div>
+                    
+                    <div class="task-stack">
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.lingq.com/" target="_blank">LingQ Premium</a></div>
+                                <div class="purchase-meta">Reading App / Buy 8 Months</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Import raw native Spanish articles. Read continuously, clicking unknown terms to append your database. Prioritize text momentum over parsing.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.dreamingspanish.com/" target="_blank">Dreaming Spanish Adv.</a></div>
+                                <div class="purchase-meta">Video Platform / Subscription Active</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Advance parameters to intermediate/advanced media inputs. Listen passively during daily routines to process authentic streams at native velocity.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.italki.com/" target="_blank">iTalki Tutors</a></div>
+                                <div class="purchase-meta">1-on-1 Marketplace / Book 16 Total Sessions</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Execute 1-on-1 conversational sessions twice monthly. Force live accent adjustments. Use non-live session days for writing composition entries on Busuu.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Details bar -->
+            <div class="price-strip">
+                <div class="price-group">
+                    <div class="price-badge">Assimil: <span>₹8,287.50</span></div>
+                    <div class="price-badge">Busuu: <span>₹3,804.00</span></div>
+                    <div class="price-badge">Dreaming SP: <span>₹9,129.60</span></div>
+                    <div class="price-badge">LingQ: <span>₹11,412.00</span></div>
+                    <div class="price-badge">iTalki: <span>₹22,824.00</span></div>
+                </div>
+                <div class="total-sum">Total: ₹55,457.10</div>
+            </div>
+        </div>
+
+        <!-- FRENCH AREA -->
+        <div id="fr-view" class="view-pane">
+            <div class="grid-layout">
+                <!-- Phase 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="phase-title">Phase 1</span>
+                        <span class="phase-timeline">Months 01 – 04</span>
+                    </div>
+                    
+                    <div class="task-stack">
+                        <div class="task-node">
+                            <div class="time-pill">45 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.assimil.com/" target="_blank">Assimil French</a></div>
+                                <div class="purchase-meta">Physical Book + Audio Code / One-time Purchase</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Scan modern dialogue texts. Map text streams against parallel variants without grammar rules. Complete written translation exercises manually.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">15 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.busuu.com/" target="_blank">Busuu Premium</a></div>
+                                <div class="purchase-meta">App Subscription / Buy 4 Months</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Execute spelling pattern blocks daily to target silent letter strings and liaison links. Force submissions to the community profile for feedback.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">120 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://innerfrench.com/" target="_blank">InnerFrench Core</a></div>
+                                <div class="purchase-meta">Premium Audio Course / One-time Purchase</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Listen to specific audio assets without text keys. Isolate phonetic components. Execute a second loop while actively scanning transcripts to fix boundaries.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="phase-title">Phase 2</span>
+                        <span class="phase-timeline">Months 05 – 12</span>
+                    </div>
+                    
+                    <div class="task-stack">
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.lingq.com/" target="_blank">LingQ Premium</a></div>
+                                <div class="purchase-meta">Reading App / Buy 8 Months</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Import complex native French media and articles. Isolate terminology markers, map lookup tags, and scan without translation systems active.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://innerfrench.com/" target="_blank">InnerFrench Advanced</a></div>
+                                <div class="purchase-meta">Audio Podcast Feed / Free Resource Included</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Process full-speed native monologues addressing complex abstract themes. Filter sound changes and adapt to natural acceleration shifts without text support.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.italki.com/" target="_blank">iTalki Sessions</a></div>
+                                <div class="purchase-meta">1-on-1 Marketplace / Book 16 Total Sessions</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Initiate conversational output tracks with specialized native teachers. Log and reduce pronunciation flaws. Prioritize active writing drills on off-days.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Strip -->
+            <div class="price-strip">
+                <div class="price-group">
+                    <div class="price-badge">Assimil: <span>₹8,287.50</span></div>
+                    <div class="price-badge">Busuu: <span>₹3,804.00</span></div>
+                    <div class="price-badge">InnerFrench: <span>₹10,939.50</span></div>
+                    <div class="price-badge">LingQ: <span>₹11,412.00</span></div>
+                    <div class="price-badge">iTalki: <span>₹22,824.00</span></div>
+                </div>
+                <div class="total-sum">Total: ₹57,267.00</div>
+            </div>
+        </div>
+
+        <!-- RUSSIAN AREA -->
+        <div id="ru-view" class="view-pane">
+            <div class="grid-layout">
+                <!-- Phase 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="phase-title">Phase 1</span>
+                        <span class="phase-timeline">Months 01 – 04</span>
+                    </div>
+                    
+                    <div class="task-stack">
+                        <div class="task-node">
+                            <div class="time-pill">45 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.assimil.com/" target="_blank">Assimil Russian</a></div>
+                                <div class="purchase-meta">Physical Book + Audio Code / One-time Purchase</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Absorb Cyrillic layout vectors line-by-line. Map basic noun cases implicitly using dual-language text configurations. Omit direct grid table study.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">15 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.busuu.com/" target="_blank">Busuu Core Lab</a></div>
+                                <div class="purchase-meta">App Subscription / Buy 4 Months</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Construct simple structural sentences isolating noun suffixes and core verb units. Route elements to live evaluation channels for direct confirmation.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">120 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://russianprogress.com/" target="_blank">Russian Progress</a></div>
+                                <div class="purchase-meta">Patreon Tier Access / Buy 24 Months Sub</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Listen to natural unedited native sound loops. Match raw audio inputs directly with printed scripts. Track inflection shifts and spelling variations concurrently.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="phase-title">Phase 2</span>
+                        <span class="phase-timeline">Months 05 – 24</span>
+                    </div>
+                    
+                    <div class="task-stack">
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.lingq.com/" target="_blank">LingQ Deep Read</a></div>
+                                <div class="purchase-meta">Reading App / Buy 20 Months</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Process dense native Russian articles. Extract and map root-affix clusters inside the reader application interface. Focus on expanding raw reading endurance.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://russianprogress.com/" target="_blank">RU Progress Media</a></div>
+                                <div class="purchase-meta">Patreon Tier Access / Subscription Active</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Track unfiltered conversational audio assets. Process intricate case variations and native syntax strings at full velocity. Do not use English benchmarks.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-node">
+                            <div class="time-pill">60 Min</div>
+                            <div class="task-body">
+                                <div class="task-title"><a href="https://www.italki.com/" target="_blank">iTalki Classrooms</a></div>
+                                <div class="purchase-meta">1-on-1 Marketplace / Book 40 Total Sessions</div>
+                                <div class="guide-box">
+                                    <div class="guide-text">Execute target conversation streams forcing real-time declension processing. Instruct tutors to execute immediate case adjustments. Run writing loops on off-days.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Strip -->
+            <div class="price-strip">
+                <div class="price-group">
+                    <div class="price-badge">Assimil: <span>₹8,287.50</span></div>
+                    <div class="price-badge">Busuu: <span>₹3,804.00</span></div>
+                    <div class="price-badge">RU Progress: <span>₹11,412.00</span></div>
+                    <div class="price-badge">LingQ: <span>₹28,530.00</span></div>
+                    <div class="price-badge">iTalki: <span>₹57,060.00</span></div>
+                </div>
+                <div class="total-sum">Total: ₹109,093.50</div>
+            </div>
+        </div>
+
+        <!-- Global Project Footprint -->
+        <div class="grand-total-bar">
+            <div>Total Cost</div>
+            <div style="color: var(--accent);">₹221,817.60</div>
+        </div>
+
+    </div>
+
+    <!-- System Interface Logic scripts -->
+    <script>
+        function switchTab(viewId, langLabel, triggerButton) {
+            document.querySelectorAll('.view-pane').forEach(view => view.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(viewId).classList.add('active');
+            triggerButton.classList.add('active');
+            
+            document.getElementById('active-title').innerText = langLabel;
+            document.getElementById('menu-dock').classList.remove('open');
+        }
+
+        function toggleMenu() {
+            document.getElementById('menu-dock').classList.toggle('open');
+        }
+
+        function toggleTheme() {
+            const toggle = document.getElementById('theme-toggle');
+            const targetState = toggle.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', targetState);
+        }
+    </script>
+</body>
+</html>
