@@ -22,8 +22,8 @@
             --text-muted: #94a3b8;
             --hyperlink: #2997ff; /* High-Visibility Link Blue */
             
-            /* Cultural Base Theme Colors */
-            --lang-theme: #e63946; 
+            /* Cultural Base Theme Colors (Defaults to Agave Green for Spanish) */
+            --lang-theme: #059669; 
         }
 
         [data-theme="light"] {
@@ -36,7 +36,7 @@
             --text: #0f172a;
             --text-muted: #64748b;
             --hyperlink: #0066cc;
-            --lang-theme: #e63946;
+            --lang-theme: #059669;
         }
 
         * {
@@ -208,7 +208,7 @@
             color: #ffffff;
             border-radius: 14px;
             padding: 28px 36px;
-            font-size: 42px; /* Amplified display sizing */
+            font-size: 42px;
             font-weight: 800;
             text-transform: uppercase;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -220,7 +220,7 @@
         .view-canvas {
             display: none;
             flex-direction: column;
-            gap: 48px; /* Strict open whitespace blocking between Phase 1 and Phase 2 */
+            gap: 48px;
             width: 100%;
             margin-top: 12px;
         }
@@ -245,7 +245,7 @@
         }
 
         .phase-heading-text {
-            font-size: 26px; /* Clear hierarchical scaling down from 42px main title */
+            font-size: 26px;
             font-weight: 800;
             text-transform: uppercase;
         }
@@ -278,7 +278,7 @@
             font-size: 12px;
             font-weight: 700;
             background: rgba(52, 199, 89, 0.15);
-            color: #34c759; /* Crisp Apple Green */
+            color: #34c759;
             padding: 4px 12px;
             border-radius: 6px;
             text-transform: uppercase;
@@ -296,7 +296,7 @@
             background: var(--surface-card);
             border: 2px solid var(--border);
             border-radius: 16px;
-            padding: 40px; /* Expanded spacious breathing room padding */
+            padding: 40px;
             display: flex;
             flex-direction: column;
             gap: 24px;
@@ -532,10 +532,9 @@
 
             <div class="controls" id="menu-dock">
                 <div class="tabs-wrapper">
-                    <!-- Dynamic solid cultural accents -->
-                    <button class="tab-trigger active" onclick="switchCanvasView('es-pane', 'ESPAÑOL', '#e63946', this)">ESPAÑOL</button>
+                    <button class="tab-trigger active" onclick="switchCanvasView('es-pane', 'ESPAÑOL', '#059669', this)">ESPAÑOL</button>
                     <button class="tab-trigger" onclick="switchCanvasView('fr-pane', 'FRANÇAIS', '#0055a5', this)">FRANÇAIS</button>
-                    <button class="tab-trigger" onclick="switchCanvasView('ru-pane', 'РУССКИЙ', '#d97706', this)">РУССКИЙ</button>
+                    <button class="tab-trigger" onclick="switchCanvasView('ru-pane', 'РУССКИЙ', '#e63946', this)">РУССКИЙ</button>
                 </div>
             </div>
         </header>
@@ -552,7 +551,7 @@
             </label>
         </div>
 
-        <!-- SPANISH CANVAS -->
+        <!-- ESPAÑOL CANVAS -->
         <div id="es-pane" class="view-canvas active-view">
             
             <!-- Phase 1 Container -->
@@ -564,7 +563,6 @@
                 
                 <div class="resource-execution-stack">
                     <div class="resource-core-card">
-                        <!-- Milestone Row Inside Box Layout -->
                         <div class="milestone-badge-row">
                             <span class="milestone-label">Target Stage Proficiency:</span>
                             <span class="milestone-target">A1 / A2 Elementary Foundation</span>
@@ -581,20 +579,20 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Complete exactly 1 conversational chapter per session. Focus entirely on completing the actual task structure rather than staring blankly at the page to pass the time.</li>
-                                <li><strong>Audio-Visual Mapping:</strong> Play the native audio guide while tracking the corresponding printed lines with your eyes at the exact same moment. Link the target spelling directly with spoken pronunciation parameters.</li>
-                                <li><strong>Output Drill:</strong> Handwrite translation validation exercises into a physical offline notebook to anchor sentence structures. Completely skip digital flashcard loops.</li>
+                                <li><strong>Daily Goal:</strong> Complete exactly 1 full conversational chapter daily. Do not view text frames for 45 minutes straight without making active progress. Execute based on completing the structural task.</li>
+                                <li><strong>Simultaneous Execution:</strong> Play the audio drill while visually tracking the printed lines at the exact same time. Link the spelling directly with the spoken pronunciation.</li>
+                                <li><strong>Output Drill:</strong> Manually copy translation elements into a physical offline notebook to finish the lesson validation checks. Completely skip digital word card loops.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>How to Order:</strong> Search Amazon India for high-quality verified prints from specialized domestic importers. Search specifically for <strong>"Assimil Spanish Method for English Speakers"</strong>. Double-check the book details to verify the language is English to Spanish.</li>
-                                <li><strong>Item Specification:</strong> Purchase the complete physical manual pack that includes the durable printed textbook alongside the integrated MP3 audio access codes.</li>
-                                <li><strong>Price Data:</strong> Premium local importer retail cost is fixed at ~$87.</li>
-                                <li><strong>Delivery Window:</strong> Dispatched directly from domestic stockrooms. Courier logistics clear transit directly to your address within 2–4 business days.</li>
-                                <li><strong>Interim Buffer Policy:</strong> Never allow the daily schedule to sit empty while waiting for books to arrive. Pivot immediately to streaming free beginner videos on the Dreaming Spanish YouTube channel to fill the 45-minute block.</li>
+                                <li><strong>How to Order:</strong> Search Amazon India for high-quality verified prints from specialized domestic importers. Search specifically for <strong>"Assimil Spanish Method for English Speakers"</strong>. Double-check the book details to verify the language is English to Spanish to avoid getting a French-medium copy.</li>
+                                <li><strong>Item Specification:</strong> Purchase the complete physical manual pack that includes the printed textbook alongside the MP3 audio access codes.</li>
+                                <li><strong>Price Data:</strong> Premium local importer retail cost is fixed at ₹7,250.00.</li>
+                                <li><strong>Delivery Window:</strong> Dispatched directly from domestic stockrooms. Courier logistics clear transit to your Lucknow address within 2–4 business days.</li>
+                                <li><strong>Interim Buffer Policy:</strong> Never allow the daily schedule to sit empty while waiting for physical payloads to arrive. Pivot immediately to streaming free beginner videos on the Dreaming Spanish YouTube channel to fill the 45-minute block.</li>
                             </ul>
                         </div>
                     </div>
@@ -611,8 +609,8 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Solve exactly 1 full structural block sequence per session. Execute smoothly and close the workbook precisely at the 15-minute upper threshold.</li>
-                                <li><strong>Execution Drill:</strong> Review the rule layouts diagrammed on the left page, then use a pen to solve the fill-in application exercises on the adjacent right page.</li>
+                                <li><strong>Daily Goal:</strong> Study and solve exactly 1 full structural block sequence per session. Execute smoothly and move out of the manual precisely at the 15-minute upper threshold.</li>
+                                <li><strong>Execution Drill:</strong> Review and absorb the rule layouts diagrammed on the left page, then use a physical pen to solve the fill-in application exercises on the adjacent right page.</li>
                             </ul>
                         </div>
 
@@ -620,8 +618,8 @@
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
                                 <li><strong>Target Object:</strong> Order the physical manual copy of the Aragonés workbook layout covering the A1-B2 spectrum on Amazon India.</li>
-                                <li><strong>Price Data:</strong> Domestic standard marketplace cost sets at ~$33.</li>
-                                <li><strong>Delivery Window:</strong> Clears domestic distribution pipelines with rapid fulfillment in 2–4 business days.</li>
+                                <li><strong>Price Data:</strong> Domestic standard marketplace checks place value parameters at ~₹2,762.50.</li>
+                                <li><strong>Delivery Window:</strong> Clears domestic distribution pipelines with rapid fulfillment to Lucknow in 2–4 business days.</li>
                             </ul>
                         </div>
                     </div>
@@ -647,7 +645,7 @@
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
                                 <li><strong>Target Object:</strong> Set up your user account profile on the platform interface. Complete the checkout route under the main pricing tabs to activate Premium Membership access.</li>
-                                <li><strong>Price Data:</strong> Fixed rate of $12 per month, calculating to $144 overall for your initial 12-month timeline.</li>
+                                <li><strong>Price Data:</strong> Fixed recurring rate, calculating to ~₹9,173.76 overall for your initial 12-month timeline.</li>
                                 <li><strong>Delivery Window:</strong> Database access unlocks instantly upon authentication.</li>
                             </ul>
                         </div>
@@ -664,7 +662,6 @@
                 
                 <div class="resource-execution-stack">
                     <div class="resource-core-card">
-                        <!-- Milestone Row Inside Box Layout -->
                         <div class="milestone-badge-row">
                             <span class="milestone-label">Target Stage Proficiency:</span>
                             <span class="milestone-target">B2 Upper Intermediate Fluency</span>
@@ -690,7 +687,7 @@
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
                                 <li><strong>Action:</strong> Download the browser interaction extension utility. The Free Tier provides complete processing capabilities for your needs.</li>
-                                <li><strong>Price Data:</strong> $0 with immediate browser deployment.</li>
+                                <li><strong>Price Data:</strong> ₹0.00 with immediate browser deployment.</li>
                             </ul>
                         </div>
                     </div>
@@ -708,7 +705,7 @@
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
                                 <li><strong>Daily Goal:</strong> Review advanced inputs to satisfy your 60-minute tracking milestone.</li>
-                                <li><strong>Listening Strategy:</strong> Filter content paths for "Intermediate" and "Advanced" tiers. Use multi-regional platform filters to accent-train your ears to both European and Latin American speakers.</li>
+                                <li><strong>Listening Strategy:</strong> Filter content paths for "Intermediate" and "Advanced" tiers. Run audio assets to condition your ears to fast native communication speed changes.</li>
                             </ul>
                         </div>
 
@@ -741,7 +738,7 @@
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
                                 <li><strong>Action:</strong> Filter system categories for Professional Teachers. Purchase target lesson hours directly within your profile portal.</li>
-                                <li><strong>Price Data:</strong> ~$460 total reallocated fund pool, secured directly by dropping secondary application subscriptions.</li>
+                                <li><strong>Price Data:</strong> ~₹38,224.00 total reallocated fund pool, secured directly by dropping secondary application subscriptions.</li>
                             </ul>
                         </div>
                     </div>
@@ -751,18 +748,20 @@
             <!-- Ledger Strip -->
             <div class="ledger-breakdown-panel">
                 <div class="ledger-tags-flex">
-                    <div class="price-tag-node">Assimil Spanish: <span>$87</span></div>
-                    <div class="price-tag-node">Workbook: <span>$33</span></div>
-                    <div class="price-tag-node">Dreaming SP: <span>$144</span></div>
-                    <div class="price-tag-node">Readlang: <span>$0</span></div>
-                    <div class="price-tag-node">iTalki: <span>$460</span></div>
+                    <div class="price-tag-node">Assimil ESPAÑOL: <span>₹7,250.00</span></div>
+                    <div class="price-tag-node">Workbook: <span>₹2,762.50</span></div>
+                    <div class="price-tag-node">Dreaming SP: <span>₹9,173.76</span></div>
+                    <div class="price-tag-node">Readlang: <span>₹0.00</span></div>
+                    <div class="price-tag-node">iTalki: <span>₹38,224.00</span></div>
                 </div>
                 <div class="total-summary-row">
                     <span>Track Cost Subtotal</span>
-                    <span>$724</span>
+                    <span>₹57,410.26</span>
                 </div>
             </div>
         </div>
+
+        <!-- FRANÇAIS CANVAS -->
         <div id="fr-pane" class="view-canvas">
             <div class="phase-container-block">
                 <div class="phase-headline-separator">
@@ -788,19 +787,20 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Finish exactly 1 complete chapter module daily within your 45-minute limit. Focus on completion, not just clock-watching.</li>
-                                <li><strong>Audio-Visual Mapping:</strong> Look at the dialogue text lines while playing the native audio files at the exact same time. Map spoken sounds directly to the written words to build natural reading habits.</li>
+                                <li><strong>Daily Goal:</strong> Finish exactly 1 complete chapter module task sequence daily. Maintain the 45-minute active review limit.</li>
+                                <li><strong>Audio-Visual Mapping:</strong> Scan dialogue text lines while playing matching native sound files simultaneously. Map phonetic shifts and spoken word ties directly to the written text.</li>
+                                <li><strong>Output Drill:</strong> Handwrite translation validation exercises into a physical offline notebook. Completely skip digital word card loops.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>How to Order:</strong> Search Amazon India for premium verified imports from specialized domestic distributors. Search for the exact title <strong>"Assimil French Method for English Speakers"</strong>. Double-check the product details to confirm the language is English to French.</li>
-                                <li><strong>Item Specification:</strong> Order the premium physical book pack that includes the textbook and the integrated MP3 audio download codes.</li>
-                                <li><strong>Price Data:</strong> Premium domestic import value is set at ~$87.</li>
-                                <li><strong>Delivery Window:</strong> Dispatched from domestic stockrooms. Logistics lines clear delivery directly to Lucknow within 2–4 business days.</li>
-                                <li><strong>Interim Buffer Policy:</strong> Do not leave this time slot empty while waiting for the book. Use this 45-minute daily slot to stream free intermediate episodes of the InnerFrench podcast.</li>
+                                <li><strong>How to Order:</strong> Query Amazon India for premium verified imports from specialized local distributors. Search for titles exactly matching <strong>"Assimil French Method for English Speakers"</strong>. Check the language details tab to confirm source language structures are set for English mediums.</li>
+                                <li><strong>Item Specification:</strong> Purchase the complete physical manual package enclosing the reference text plus high-fidelity audio MP3 access markers.</li>
+                                <li><strong>Price Data:</strong> Premium local importer standard pricing is set at ₹7,250.00.</li>
+                                <li><strong>Delivery Window:</strong> Dispatched immediately from domestic stock hubs. Delivery clears transit to Lucknow in 2–4 business days.</li>
+                                <li><strong>Interim Buffer Policy:</strong> Fill this 45-minute daily track by streaming intermediate cultural analysis entries on the InnerFrench podcast while awaiting physical delivery.</li>
                             </ul>
                         </div>
                     </div>
@@ -817,17 +817,17 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Complete exactly 1 grammar exercise sheet daily within the 15-minute timeframe.</li>
-                                <li><strong>Execution Drill:</strong> Read the grammar rules on the left page, then pick up a physical pen and write down your answers to the drills on the right page.</li>
+                                <li><strong>Daily Goal:</strong> Target and finish exactly 1 manual syntax drill lesson sheet task within the 15-minute timeframe daily.</li>
+                                <li><strong>Execution Drill:</strong> Review paragraph layouts on left pages, then use a pen to execute structural validation exercises directly onto adjacent right pages.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Target Object:</strong> Buy the physical book published by CLE International on Amazon India.</li>
-                                <li><strong>Price Data:</strong> Standard domestic price is ~$33.</li>
-                                <li><strong>Delivery Window:</strong> Domestic shipping to Lucknow takes 2–4 business days.</li>
+                                <li><strong>Target Object:</strong> Order the physical manual copy printed by CLE International from Amazon India.</li>
+                                <li><strong>Price Data:</strong> Domestic standard marketplace checks confirm parameters at ~₹2,762.50.</li>
+                                <li><strong>Delivery Window:</strong> Courier networks clear warehouse shipping directly to Lucknow within 2–4 business days.</li>
                             </ul>
                         </div>
                     </div>
@@ -844,16 +844,16 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Listen to audio episodes continuously until the 120-minute daily tracking quota is complete.</li>
-                                <li><strong>Listening Strategy:</strong> Listen to the audio first without looking at the transcript. Listen a second time while reading the free website transcript to look up unfamiliar words.</li>
+                                <li><strong>Daily Goal:</strong> Ingest conversational sound tracks until the full 120-minute daily tracking quota is complete.</li>
+                                <li><strong>Listening Strategy:</strong> Listen to raw essays completely without reading script aids first. Run a secondary playback loop while checking the free website transcript pages to isolate unfamiliar vocabulary phrases.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Target Object:</strong> Register a free profile on the official website.</li>
-                                <li><strong>Price Data:</strong> $0 with instant digital access to all transcripts and audio files.</li>
+                                <li><strong>Action:</strong> Create your free user account profile directly on the primary portal.</li>
+                                <li><strong>Price Data:</strong> Digital transcript files clear for download instantly at ₹0.00.</li>
                             </ul>
                         </div>
                     </div>
@@ -884,16 +884,16 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Read native French materials to complete the 60-minute reading session.</li>
-                                <li><strong>Reading Strategy:</strong> Upload articles to the tool. Tap difficult words for instant pop-up translations without breaking your overall reading speed.</li>
+                                <li><strong>Daily Goal:</strong> Process native text logs continuously to complete the 60-minute duration task.</li>
+                                <li><strong>Reading Strategy:</strong> Read uploaded French digital materials. Use multi-channel screen tap commands for immediate translation hovers without fracturing your textual reading speed.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Install the browser extension. Free tier access provides all necessary utility.</li>
-                                <li><strong>Price Data:</strong> $0 with instant activation.</li>
+                                <li><strong>Action:</strong> Load the standard open web plug extension layer. Free Tier access provides all necessary utility.</li>
+                                <li><strong>Price Data:</strong> ₹0.00 with instant activation.</li>
                             </ul>
                         </div>
                     </div>
@@ -910,19 +910,19 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Stream continuous native audio files to complete the 60-minute block.</li>
-                                <li><strong>Listening Strategy:</strong> Listen to full-speed episodes covering history and philosophy. Drop transcript aids entirely to force your ears to adapt.</li>
+                                <li><strong>Daily Goal:</strong> Track unfiltered native audio loops to exhaust the 60-minute task duration.</li>
+                                <li><strong>Listening Strategy:</strong> Play full-speed audio essays covering history and philosophy. Drop transcript aids entirely to maximize auditory conditioning.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Stream unedited podcast episodes through open public audio directories.</li>
-                                <li><strong>Price Data:</strong> $0 recurring cost.</li>
+                                <li><strong>Action:</strong> Stream unedited podcast episodes via open public audio directories.</li>
+                                <li><strong>Price Data:</strong> ₹0.00 recurring cost.</li>
                             </ul>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="resource-core-card">
                         <div class="card-meta-row">
@@ -936,16 +936,16 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Complete 1 live speaking lesson (scheduled twice a week). On off-days, spend the 60 minutes practicing text compositions.</li>
-                                <li><strong>Output Practice:</strong> Speak actively with native tutors. Instruct them to correct pronunciation and sentence structure errors immediately.</li>
+                                <li><strong>Daily Goal:</strong> Complete 1 live speaking lesson pack block twice weekly. Swap to text composition lines for the 60-minute slot task on off-days.</li>
+                                <li><strong>Output Practice:</strong> Engage in native verbal output drills. Tutors must aggressively point out structural mistakes immediately.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Buy lesson packages directly within your user profile. Digital booking is instant.</li>
-                                <li><strong>Price Data:</strong> ~$598 total allocated budget (reallocated by cutting application subscriptions).</li>
+                                <li><strong>Action:</strong> Purchase session packs directly in your profile. Digital booking is instant.</li>
+                                <li><strong>Price Data:</strong> ~₹49,691.20 overall reallocated cash target.</li>
                             </ul>
                         </div>
                     </div>
@@ -954,19 +954,20 @@
 
             <div class="ledger-breakdown-panel">
                 <div class="ledger-tags-flex">
-                    <div class="price-tag-node">Assimil French: <span>$87</span></div>
-                    <div class="price-tag-node">Grammaire Progres: <span>$33</span></div>
-                    <div class="price-tag-node">InnerFrench Pod: <span>$0</span></div>
-                    <div class="price-tag-node">Readlang: <span>$0</span></div>
-                    <div class="price-tag-node">iTalki: <span>$598</span></div>
+                    <div class="price-tag-node">Assimil FRANÇAIS: <span>₹7,250.00</span></div>
+                    <div class="price-tag-node">Grammaire Progres: <span>₹2,762.50</span></div>
+                    <div class="price-tag-node">InnerFrench Pod: <span>₹0.00</span></div>
+                    <div class="price-tag-node">Readlang: <span>₹0.00</span></div>
+                    <div class="price-tag-node">iTalki: <span>₹49,691.20</span></div>
                 </div>
                 <div class="total-summary-row">
                     <span>Track Cost Subtotal</span>
-                    <span>$718</span>
+                    <span>₹59,703.70</span>
                 </div>
             </div>
         </div>
 
+        <!-- РУССКИЙ CANVAS -->
         <div id="ru-pane" class="view-canvas">
             <div class="phase-container-block">
                 <div class="phase-headline-separator">
@@ -992,17 +993,19 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Complete exactly 1 dialogue lesson daily within the 45-minute active review session.</li>
-                                <li><strong>Audio-Visual Mapping:</strong> Read the Cyrillic dialogues via parallel translation columns while playing the native audio simultaneously. Let your brain absorb how the sounds match the endings naturally without memorizing complex charts.</li>
+                                <li><strong>Daily Goal:</strong> Complete exactly 1 full dialogue lesson track daily. Fulfill the 45-minute active review session.</li>
+                                <li><strong>Audio-Visual Mapping:</strong> Read Cyrillic dialogues via parallel column sheets while playing the native audio simultaneously. Absorb spoken variations and case endings naturally through exposure rather than memorizing dry grammar charts.</li>
+                                <li><strong>Output Drill:</strong> Handwrite translation validation exercises into a physical offline notebook. Completely skip digital word card loops.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>How to Order:</strong> Search Amazon India for high-quality verified prints from specialized distributors. Look specifically for the title <strong>"Assimil Russian Method for English Speakers"</strong>. Confirm on the product details page that the language sets are English and Russian.</li>
-                                <li><strong>Price Framework:</strong> Premium domestic import value is set at ~$87. Ordering via domestic import stockrooms delivers directly to Lucknow within 2–4 business days.</li>
-                                <li><strong>Interim Buffer Policy:</strong> While waiting for the physical book, fill this 45-minute block by watching beginner videos on the Russian Progress YouTube channel.</li>
+                                <li><strong>How to Order:</strong> Search Amazon India for high-quality verified prints from domestic import distributors. Target products explicitly named <strong>"Assimil Russian Method for English Speakers"</strong>. Confirm target catalog variables list English as the source configuration.</li>
+                                <li><strong>Price Framework:</strong> Premium local importer retail cost is set at ₹7,250.00.</li>
+                                <li><strong>Delivery Window:</strong> Warehouses clear fulfillment pipelines straight to Lucknow inside a 2–4 business days delivery window.</li>
+                                <li><strong>Interim Buffer Policy:</strong> Fill your daily 45-minute track by watching introductory speech videos on the Russian Progress YouTube channel while delivery clears.</li>
                             </ul>
                         </div>
                     </div>
@@ -1019,16 +1022,17 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Complete exactly 1 grammar chapter and its corresponding review exercises daily within the 15-minute slot.</li>
-                                <li><strong>Execution Drill:</strong> Write case endings, noun declensions, and verbs of motion manually on paper to build physical muscle memory for the grammar rules.</li>
+                                <li><strong>Daily Goal:</strong> Finish exactly 1 complete rule unit chapter sequence task and its adjoining verification drill layout daily within the 15-minute timeframe.</li>
+                                <li><strong>Execution Drill:</strong> Write case endings, noun declension suffixes, and verbs of motion manually onto paper to lock in precise sentence generation mechanics.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Purchase the physical textbook by Nicholas Brown directly on Amazon India.</li>
-                                <li><strong>Price Data:</strong> Standard marketplace cost is ~$23. Domestic shipping to Lucknow takes 2–4 business days.</li>
+                                <li><strong>Action:</strong> Buy Nicholas Brown's physical textbook manual on Amazon India.</li>
+                                <li><strong>Price Data:</strong> Retail value scales at ~₹1,911.20.</li>
+                                <li><strong>Delivery Window:</strong> Clears domestic courier transit blocks to Lucknow within 2–4 business days.</li>
                             </ul>
                         </div>
                     </div>
@@ -1045,16 +1049,16 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Ingest conversational audio files until the 120-minute daily quota is cleared.</li>
-                                <li><strong>Audio-Text Alignment:</strong> Play the audio tracks while following along with the text transcripts. Link the spoken sounds directly to the Cyrillic letters you are reading.</li>
+                                <li><strong>Daily Goal:</strong> Ingest conversational audio files continuously task-by-task until the full 120-minute structural quota is cleared.</li>
+                                <li><strong>Audio-Text Alignment:</strong> Play unedited conversational sound recordings while your eyes track the word-for-word text scripts to accurately link phonetic shifts to written Cyrillic symbols.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Join the Patreon archive vault via the platform link. Select the $5 monthly membership.</li>
-                                <li><strong>Price Data:</strong> Fixed at $120 total calculated evenly over your strict 24-month horizon. Instant digital access.</li>
+                                <li><strong>Action:</strong> Authenticate via Patreon link options and join the monthly membership archive vault. Digital file clearing is immediate.</li>
+                                <li><strong>Price Data:</strong> Cost matches ~₹11,467.20 evaluated over your strict 24-month operational horizon.</li>
                             </ul>
                         </div>
                     </div>
@@ -1085,16 +1089,16 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Import and read native Russian articles to fill the 60-minute immersion session.</li>
-                                <li><strong>Text Strategy:</strong> Upload raw text files. The open-source system color-codes words based on your reading history to help you recognize roots and prefixes instantly.</li>
+                                <li><strong>Daily Goal:</strong> Import and execute reading immersion modules across native article entries to exhaust the 60-minute duration task.</li>
+                                <li><strong>Text Strategy:</strong> Upload raw Russian articles. The local system interface color-codes root variations based on your personal word history to accelerate syntax scanning.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Clone the free open-source repository locally to your machine. Initial setup takes about 15 minutes.</li>
-                                <li><strong>Price Data:</strong> $0 recurring cost.</li>
+                                <li><strong>Action:</strong> Clone the free open-source database repository locally to your machine architecture. Master setup takes 15 minutes.</li>
+                                <li><strong>Price Data:</strong> Open resource utility costs exactly ₹0.00.</li>
                             </ul>
                         </div>
                     </div>
@@ -1111,15 +1115,15 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Listen to native audio segments to satisfy the 60-minute tracking boundary.</li>
-                                <li><strong>Listening Strategy:</strong> Listen to unedited conversations. Track suffix shifts and case endings at full native speed without relying on English translation guides.</li>
+                                <li><strong>Daily Goal:</strong> Stream audio task segments continuously to satisfy the 60-minute milestone tracking boundaries.</li>
+                                <li><strong>Listening Strategy:</strong> Isolate complex unedited conversation tracks. Track suffix shifts and case endings at full native velocities without looking at English translation guides.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Access Strategy:</strong> Handled seamlessly through the active, continuous Patreon archive subscription started in Phase 1.</li>
+                                <li><strong>Access Strategy:</strong> Handled seamlessly through your active, continuous Patreon file repository access tier.</li>
                             </ul>
                         </div>
                     </div>
@@ -1136,16 +1140,16 @@
                         <div class="sub-functional-block learning-pane">
                             <div class="block-intent-header">Learning Protocol</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Daily Goal:</strong> Complete 1 live conversation lesson (scheduled twice a week). On non-lesson days, spend the 60 minutes writing text compositions.</li>
-                                <li><strong>Output Practice:</strong> Practice high-intensity speaking to apply case endings actively. Tell your teacher to correct prefix, suffix, and verb aspect errors immediately.</li>
+                                <li><strong>Daily Goal:</strong> Execute 1 live conversational lesson module task twice weekly. Execute written text composition lines for the 60-minute duration task on off-days.</li>
+                                <li><strong>Output Practice:</strong> Engage in high-intensity verbal output drills forcing live case adaptation. Instruct instructors to check and correct suffix declension and aspect errors instantly.</li>
                             </ul>
                         </div>
 
                         <div class="sub-functional-block logistics-pane">
                             <div class="block-intent-header">Website Navigation & Logistics</div>
                             <ul class="bullet-nodes">
-                                <li><strong>Action:</strong> Allocate saved subscription funds to book professional teachers on the platform.</li>
-                                <li><strong>Price Data:</strong> ~$1,082 total budget reallocated to cover the 24-month duration.</li>
+                                <li><strong>Action:</strong> Allocate reallocated asset reserves to purchase tutoring hours directly within your user portal.</li>
+                                <li><strong>Price Data:</strong> Total fund mapping locks exactly at ~₹89,826.40 for the 24-month framework.</li>
                             </ul>
                         </div>
                     </div>
@@ -1154,15 +1158,15 @@
 
             <div class="ledger-breakdown-panel">
                 <div class="ledger-tags-flex">
-                    <div class="price-tag-node">Assimil Russian: <span>$87</span></div>
-                    <div class="price-tag-node">New Penguin RU: <span>$23</span></div>
-                    <div class="price-tag-node">RU Progress: <span>$120</span></div>
-                    <div class="price-tag-node">Lute Engine: <span>$0</span></div>
-                    <div class="price-tag-node">iTalki: <span>$1,082</span></div>
+                    <div class="price-tag-node">Assimil РУССКИЙ: <span>₹7,250.00</span></div>
+                    <div class="price-tag-node">New Penguin RU: <span>₹1,911.20</span></div>
+                    <div class="price-tag-node">RU Progress: <span>₹11,467.20</span></div>
+                    <div class="price-tag-node">Lute Engine: <span>₹0.00</span></div>
+                    <div class="price-tag-node">iTalki: <span>₹89,826.40</span></div>
                 </div>
                 <div class="total-summary-row">
                     <span>Track Cost Subtotal</span>
-                    <span>$1,312</span>
+                    <span>₹110,454.80</span>
                 </div>
             </div>
         </div>
@@ -1170,11 +1174,11 @@
         <div class="consolidated-project-footer">
             <div class="formula-line-wrapper">
                 <span class="toggle-txt">Summation Breakdown</span>
-                <span class="formula-text">$724 (ESPAÑOL) + $718 (FRANÇAIS) + $1,312 (РУССКИЙ)</span>
+                <span class="formula-text">₹57,410.26 (ESPAÑOL) + ₹59,703.70 (FRANÇAIS) + ₹110,454.80 (РУССКИЙ)</span>
             </div>
             <div class="grand-final-line-wrapper">
                 <div class="display-title" style="font-size: 16px;">Project Grand Total</div>
-                <div style="color: var(--hyperlink);" id="master-total-display">$2,754</div>
+                <div style="color: var(--hyperlink);" id="master-total-display">₹227,568.76</div>
             </div>
         </div>
 
